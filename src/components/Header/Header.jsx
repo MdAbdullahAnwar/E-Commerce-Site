@@ -1,9 +1,18 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Container, Navbar, Nav, Button } from "react-bootstrap";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faMobileScreen } from '@fortawesome/free-solid-svg-icons';
+import { faMobileScreen, faShoppingCart } from "@fortawesome/free-solid-svg-icons";
+
+import Cart from "../Cart/Cart";
 
 const Header = () => {
+
+  const [showCart, setShowCart] = useState(false);
+
+  const showCartHandler = ()=>{
+    setShowCart(!showCart)
+  }
+
   return (
     <header>
       <Navbar expand="lg" className="navbar navbar-dark shadow-lg py-3" style={{ 
@@ -28,11 +37,25 @@ const Header = () => {
             </Nav>
 
             {/* Login Button */}
-            <Button variant="outline-light" className="ms-0 fw-semibold px-4 py-2 rounded-pill btn-glow">Login</Button>
+            {/* <Button variant="outline-light" 
+              className="ms-0 fw-semibold px-4 py-2 rounded-pill btn-glow"
+            >
+              Login
+            </Button> */}
 
           </Navbar.Collapse>
+
+          <Button onClick={showCartHandler}
+            variant="outline-warning"
+            className="rounded-circle ms-3 p-2 border-0"
+            style={{ fontSize: "1.5rem" }}
+          >
+            <FontAwesomeIcon icon={faShoppingCart} />
+          </Button>
+
         </Container>
       </Navbar>
+      {showCart && <Cart showCartHandler={showCartHandler}></Cart>}
     </header>
   );
 }

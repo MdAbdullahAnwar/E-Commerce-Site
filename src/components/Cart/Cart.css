@@ -1,0 +1,53 @@
+/* Backdrop Styling */
+.modal-backdrop.show {
+    opacity: 0.7 !important;
+    background-color: rgba(0, 0, 0, 0.5) !important;
+  }
+  
+  /* Modal customization */
+  .cart-modal .modal-content {
+    border-radius: 10px;
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+  }
+  
+  /* Cart Header */
+  .cart-header {
+    display: flex;
+    justify-content: space-between;
+    font-size: 1rem;
+    font-weight: bold;
+    text-align: left;
+    border-bottom: 2px solid #ddd;
+    padding-bottom: 8px;
+  }
+  
+  /* Total Amount */
+  .cart-total {
+    display: flex;
+    justify-content: space-between;
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin: 20px 0;
+    padding-top: 10px;
+    border-top: 2px solid #dee2e6;
+  }
+  
+  /* Purchase Button */
+  .purchase-btn {
+    display: block;
+    width: 100%;
+    background: #28a745;
+    color: white;
+    font-size: 1.2rem;
+    font-weight: bold;
+    border: none;
+    border-radius: 8px;
+    padding: 12px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+  }
+  
+  .purchase-btn:hover {
+    background: #218838;
+  }
+  

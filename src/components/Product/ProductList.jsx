@@ -2,6 +2,7 @@ import React, { Fragment } from "react";
 import { Card, Button, Container, Row, Col } from "react-bootstrap";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHeart, faShoppingCart } from "@fortawesome/free-solid-svg-icons";
+import './ProductList.css';
 
 const ProductList = () => {
   const productsArr = [
@@ -94,42 +95,6 @@ const ProductList = () => {
           ))}
         </Row>
       </Container>
-
-      {/* Bootstrap Styling Enhancements */}
-      <style>
-        {`
-          /* Product Card Hover Effect */
-          .product-card {
-            border: none;
-            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            border-radius: 15px;
-          }
-
-          .product-card:hover {
-            transform: scale(1.05);
-            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-          }
-
-          /* Product Image Styling */
-          .product-image {
-            border-top-left-radius: 15px;
-            border-top-right-radius: 15px;
-            object-fit: cover;
-          }
-
-          /* Button Hover Effects */
-          .wishlist-btn:hover {
-            background-color: red !important;
-            color: white !important;
-          }
-
-          .cart-btn:hover {
-            background-color: #ffdd57 !important;
-            color: black !important;
-          }
-        `}
-      </style>
     </Fragment>
   );
 };
