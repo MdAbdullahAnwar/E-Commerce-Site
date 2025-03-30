@@ -1,4 +1,5 @@
 import React, { useContext } from "react";
+import { NavLink } from "react-router-dom";
 import { Container, Navbar, Nav, Button } from "react-bootstrap";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHeart, faShoppingCart, faMobileScreen, faBars } from "@fortawesome/free-solid-svg-icons";
@@ -66,9 +67,9 @@ const Header = ({ showCartHandler, showWishlistHandler }) => {
           <Navbar.Collapse id="basic-navbar-nav">
           
             <Nav className="ms-auto">
-              <Nav.Link href="/" className="text-light">Home</Nav.Link>
-              <Nav.Link href="/store" className="text-light">Store</Nav.Link>
-              <Nav.Link href="/about" className="text-light">About</Nav.Link>
+              <NavLink to="/" className="nav-link">Home</NavLink>
+              <NavLink to="/store" className="nav-link">Store</NavLink>
+              <NavLink to="/about" className="nav-link">About</NavLink>
             </Nav>
           
           </Navbar.Collapse>

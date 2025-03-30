@@ -46,11 +46,25 @@
     font-size: 1.2rem;
   }
 
-  /* Navbar Links Hover Effect */
+
+  /* Navbar Links */
   .navbar-nav .nav-link {
+    color: aqua; 
     transition: color 0.3s ease-in-out;
+    font-weight: bold;
+    padding: 10px 15px;
+    border-radius: 8px;
   }
 
+
+  /* Active Link (Clicked Section) */
+  .navbar-nav .nav-link.active {
+    color: #2ecc71 !important;
+    font-weight: bold;
+  }
+
+
+  /* Navbar Links Hover Effect */
   .navbar-nav .nav-link:hover {
     color: #2ecc71 !important;
   }

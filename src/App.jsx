@@ -1,9 +1,11 @@
 import React, { useState } from "react";
-import Header from "./components/Header/Header";
-import ProductList from "./components/Product/ProductList";
+// import ProductList from "./components/Product/ProductList";
 import CartProvider from "./components/Store/CartProvider";
 import Cart from "./components/Cart/Cart";
 import WishlistModal from "./components/Wishlist/WishlistModal"; // Correct import
+import Header from "./components/Header/Header";
+import Routers from "./components/Routes/Routers";
+import Footer from "./components/Layout/Footer";
 import "./App.css";
 
 function App() {
@@ -26,7 +28,15 @@ function App() {
         showWishlistHandler={showWishlistHandler} 
       />
       
-      <ProductList />
+      {/* <ProductList /> */}
+
+      
+      {/* Routing System */}
+      <Routers />
+
+      {/* Footer */}
+      <Footer />
+
     </CartProvider>
   );
 }
