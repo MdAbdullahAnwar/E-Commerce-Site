@@ -18,7 +18,14 @@
     object-fit: cover;
   }
 
-  /* Button Hover Effects */
+  .wishlist-btn {
+    background-color: white;
+    color: red;
+    border: 2px solid red;
+    transition: all 0.3s ease;
+  }
+
+  /* Button Hover Effects */  
   .wishlist-btn:hover {
     background-color: red !important;
     color: white !important;

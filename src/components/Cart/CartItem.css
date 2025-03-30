@@ -1,71 +1,100 @@
 .cart-items {
-    display: flex;
-    justify-content: space-between;
-    text-align: left;
-  }
-  
-  .cart-item-name {
-    display: flex;
-    justify-content: space-between;
-    margin: 10px 28px 0 0;
-    padding: 0 0 10px 0;
-    width: 45%;
-    border-bottom: 1px solid black;
-    align-items: center;
-  }
-  
-  .title {
-    font: 18px;
-    font-weight: 500;
-  }
-  
-  .cart-item-name img {
-    width: 80px;
-    border-radius: 8%;
-    margin-right: 20px;
-  }
-  
-  .cart-items-price {
-    margin: 10px 27px 0 0;
-    padding: 0 0 10px 0;
-    width: 35%;
-    border-bottom: 1px solid black;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: 35px;
-    font-weight: 500;
-  }
-  
-  .cart-items-quantity {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin: 10px 28px 0 0;
-    padding: 0 0 10px 0;
-    width: 35%;
-    border-bottom: 1px solid black;
-  }
-  
-  .cart-items-quantity input {
-    width: 40px;
-    height: 30px;
-    border: 1px solid rgb(0, 204, 255);
-    border-radius: 8%;
-    outline: none;
-    text-align: center;
-    margin-right: 20px;
-  }
-  
-  .cart-items-quantity button {
-    color: white;
-    font-weight: bold;
-    font-size: 13px;
-    background: rgb(231, 76, 76);
-    cursor: pointer;
-    border: none;
-    border-radius: 8%;
-    height: 30px;
-    outline: none;
-    padding: 0px 7px;
-  }
+  display: flex;
+  justify-content: space-between;
+  align-items: center; /* Ensures perfect vertical alignment */
+  text-align: left;
+  padding-bottom: 10px;
+  border-bottom: 1px solid black;
+}
+
+.cart-item-name {
+  display: flex;
+  align-items: center;
+  width: 45%;
+}
+
+.cart-item-name img {
+  width: 80px;
+  border-radius: 8%;
+  margin-right: 20px;
+}
+
+.title {
+  font-size: 18px;
+  font-weight: 500;
+}
+
+/* Ensure same height and alignment for Price & Quantity */
+.cart-items-price {
+  width: 35%;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.cart-items-quantity {
+  display: flex;
+  align-items: center; /* Fix misalignment */
+  width: 35%;
+  justify-content: space-between;
+}
+
+/* Wraps + and - buttons vertically */
+.cart-quantity-control {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+/* Quantity Input */
+.cart-items-quantity input {
+  width: 40px;
+  height: 30px;
+  border: 1px solid rgb(0, 204, 255);
+  border-radius: 8%;
+  text-align: center;
+  font-size: 16px;
+  font-weight: bold;
+  outline: none;
+  margin-left: 10px; /* Keeps spacing consistent */
+}
+
+/* Quantity Buttons */
+.quantity-btn {
+  width: 30px;
+  height: 30px;
+  font-size: 18px;
+  font-weight: bold;
+  border: none;
+  background-color: #ffdd57;
+  color: black;
+  cursor: pointer;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.quantity-btn:hover {
+  background-color: #ffcc00;
+}
+
+/* Remove Button */
+.remove-btn {
+  color: white;
+  font-weight: bold;
+  font-size: 13px;
+  background: rgb(231, 76, 76);
+  cursor: pointer;
+  border: none;
+  border-radius: 5px;
+  height: 30px;
+  outline: none;
+  padding: 0px 7px;
+  margin-left: 15px;
+}
+
+.remove-btn:hover {
+  background: rgb(200, 50, 50);
+}

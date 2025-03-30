@@ -1,63 +1,109 @@
-import React, { useState } from 'react';
+import React, { useContext } from "react";
 import { Container, Navbar, Nav, Button } from "react-bootstrap";
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faMobileScreen, faShoppingCart } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faHeart, faShoppingCart, faMobileScreen, faBars } from "@fortawesome/free-solid-svg-icons";
+import CartContext from "../Store/CartContext";
+import "./Header.css";
 
-import Cart from "../Cart/Cart";
-
-const Header = () => {
-
-  const [showCart, setShowCart] = useState(false);
-
-  const showCartHandler = ()=>{
-    setShowCart(!showCart)
-  }
+const Header = ({ showCartHandler, showWishlistHandler }) => {
+  const cartCtx = useContext(CartContext);
 
   return (
     <header>
-      <Navbar expand="lg" className="navbar navbar-dark shadow-lg py-3" style={{ 
-        background: "linear-gradient(135deg, #0f2027, #203a43, #2c5364)" 
-      }}>
-        <Container>
-          {/* Logo & Brand */}
-          <Navbar.Brand href="/" className="d-flex align-items-center fw-bold text-light">
-            <FontAwesomeIcon icon={faMobileScreen} className="text-warning fs-2 me-2 align-middle" />
-            MobileMart
-          </Navbar.Brand>
+      <Navbar expand="lg" className="navbar shadow-lg">
+        <Container className="navbar-container">
 
-          {/* Navbar Toggle for Mobile View */}
-          <Navbar.Toggle aria-controls="basic-navbar-nav" className="border-0 shadow-none"/>
+          {/* Left Section: Hamburger + Brand */}
+          <div className="navbar-left">
+           
+            {/* Hamburger Menu */}
+            <Navbar.Toggle aria-controls="basic-navbar-nav" className="navbar-toggler d-lg-none">
+              <FontAwesomeIcon icon={faBars} />
+            </Navbar.Toggle>
 
-          {/* Collapsible Navigation Menu */}
+
+            {/* Brand beside Hamburger */}
+            <Navbar.Brand href="/" className="navbar-brand">
+              <FontAwesomeIcon icon={faMobileScreen} className="brand-icon" />
+              MobileMart
+            </Navbar.Brand>
+            
+          </div>
+
+
+          {/* Right Section: Wishlist & Cart (Only on Small Screens) */}
+          <div className="wishlist-cart-container d-lg-none">
+          
+            <Button onClick={showWishlistHandler} variant="outline-danger" className="rectangular">
+              
+              <span className="wishlist-label">
+                Your Wishlist
+              </span>
+              
+              <FontAwesomeIcon icon={faHeart} />
+              
+              {cartCtx.wishlist.length > 0 && <span className="badge bg-danger">{cartCtx.wishlist.length}</span>}
+            
+            </Button>
+
+
+            <Button onClick={showCartHandler} variant="outline-warning" className="rectangular">
+              
+              <span className="cart-label">
+                Your Cart
+              </span>
+              
+              <FontAwesomeIcon icon={faShoppingCart} />
+              
+              {cartCtx.items.length > 0 && <span className="badge bg-warning">{cartCtx.items.length}</span>}
+            
+            </Button>
+          
+          </div>
+
+
+          {/* Navbar Links */}
           <Navbar.Collapse id="basic-navbar-nav">
+          
             <Nav className="ms-auto">
-              <Nav.Link href="/" className="nav-link-custom">Home</Nav.Link>
-              <Nav.Link href="/store" className="nav-link-custom">Store</Nav.Link>
-              <Nav.Link href="/about" className="nav-link-custom">About</Nav.Link>
+              <Nav.Link href="/" className="text-light">Home</Nav.Link>
+              <Nav.Link href="/store" className="text-light">Store</Nav.Link>
+              <Nav.Link href="/about" className="text-light">About</Nav.Link>
             </Nav>
-
-            {/* Login Button */}
-            {/* <Button variant="outline-light" 
-              className="ms-0 fw-semibold px-4 py-2 rounded-pill btn-glow"
-            >
-              Login
-            </Button> */}
-
+          
           </Navbar.Collapse>
 
-          <Button onClick={showCartHandler}
-            variant="outline-warning"
-            className="rounded-circle ms-3 p-2 border-0"
-            style={{ fontSize: "1.5rem" }}
-          >
-            <FontAwesomeIcon icon={faShoppingCart} />
-          </Button>
+
+          {/* Wishlist & Cart (Only on Large Screens) */}
+          <div className="wishlist-cart-container d-none d-lg-flex">
+            
+            <Button onClick={showWishlistHandler} variant="outline-danger" className="rectangular">
+              <span className="wishlist-label">
+                Your Wishlist
+              </span>
+              
+              <FontAwesomeIcon icon={faHeart} />
+              
+              {cartCtx.wishlist.length > 0 && <span className="badge bg-danger">{cartCtx.wishlist.length}</span>}
+            </Button>
+
+
+            <Button onClick={showCartHandler} variant="outline-warning" className="rectangular">
+              <span className="cart-label">
+                Your Cart
+              </span>
+
+              <FontAwesomeIcon icon={faShoppingCart} />
+              
+              {cartCtx.items.length > 0 && <span className="badge bg-warning">{cartCtx.items.length}</span>}
+            </Button>
+          
+          </div>
 
         </Container>
       </Navbar>
-      {showCart && <Cart showCartHandler={showCartHandler}></Cart>}
     </header>
   );
-}
+};
 
 export default Header;

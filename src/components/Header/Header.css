@@ -1,0 +1,104 @@
+/* Navbar Styling */
+.navbar {
+    background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+    padding: 15px 0;
+  }
+  
+  /* Navbar Container */
+  .navbar-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  
+  /* Navbar Left Section (Hamburger + Brand) */
+  .navbar-left {
+    display: flex;
+    align-items: center;
+  }
+  
+  /* Hamburger Menu */
+  .navbar-toggler {
+    border: none;
+    background: transparent;
+    color: white;
+    font-size: 1.4rem;
+    margin-right: 10px;
+  }
+
+  .navbar-toggler:focus,
+  .navbar-toggler:active {
+    outline: none !important;
+    box-shadow: none !important;
+  }
+
+
+  .navbar-brand:hover {
+    color: white !important;
+  }
+  
+  /* Brand */
+  .navbar-brand {
+    display: flex;
+    align-items: center;
+    font-weight: bold;
+    color: white;
+    font-size: 1.2rem;
+  }
+
+  /* Navbar Links Hover Effect */
+  .navbar-nav .nav-link {
+    transition: color 0.3s ease-in-out;
+  }
+
+  .navbar-nav .nav-link:hover {
+    color: #2ecc71 !important;
+  }
+
+  
+  .brand-icon {
+    color: #ffc107;
+    font-size: 1.8rem;
+    margin-right: 8px;
+  }
+  
+  /* Wishlist & Cart Container */
+  .wishlist-cart-container {
+    display: flex;
+    align-items: center;
+  }
+  
+  /* Button Styles */
+  .rectangular {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    margin: 4px;
+    padding: 6px 12px;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    font-weight: bold;
+  }
+
+  .wishlist-label, .cart-label {
+    display: none;
+  }
+  
+  /* Show labels on larger screens */
+  @media (min-width: 992px) {
+    .wishlist-label, .cart-label {
+      display: inline;
+    }
+  }
+  
+  /* Badge (Count Styling) */
+  .badge {
+    position: absolute;
+    top: -4px;
+    right: -8px;
+    font-size: 0.75rem;
+    padding: 4px 7px;
+    border-radius: 50%;
+  }
+  
+  
