@@ -1,0 +1,219 @@
+/* General Styles */
+.home {
+    text-align: center;
+    font-family: Arial, sans-serif;
+    padding: 2rem;
+  }
+  
+  /* Hero Section */
+    .hero {
+        background: linear-gradient(135deg, #11998e, #38ef7d);
+        box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+        padding: 3rem;
+        color: white;
+        border-radius: 10px;
+    }
+  
+    .hero h1 {
+        font-size: 2.5rem;
+        font-weight: bold;
+    }
+  
+    .hero p {
+        font-size: 1.2rem;
+        margin: 1rem 0;
+    }
+  
+    .cta-button {
+        background: white;
+        color: #00b09b;
+        padding: 0.8rem 1.5rem;
+        text-decoration: none;
+        font-weight: bold;
+        border-radius: 5px;
+    }
+
+    .cta-button:hover {
+        background: #00b09b;
+        color: white;
+        transform: scale(1.05);
+    }
+
+    /* Special Offers */
+    .special-offers {
+        background: #ffcc00;
+        padding: 2rem;
+        border-radius: 10px;
+        margin: 2rem 0;
+    }
+    .special-offers h2 {
+        font-weight: bold;
+        font-size: 2rem;
+    }
+    .special-offers p {
+        font-size: 1.2rem;
+    }
+  
+    
+  .best-selling {
+    text-align: center;
+    padding: 2rem;
+    background: linear-gradient(to right, #D3CCE3, #E9E4F0);
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .best-selling h2 {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #000000;
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+  }
+  
+  .product-list {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+  }
+  
+  .product {
+    background: white;
+    padding: 1rem;
+    border-radius: 10px;
+    text-align: center;
+    width: 200px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .product:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+  }
+  
+  .product img {
+    width: 100%;
+    border-radius: 8px;
+  }
+  
+  .product-name {
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin: 0.5rem 0;
+    color: #333;
+  }
+  
+  .product-price {
+    font-size: 1.1rem;
+    font-weight: bold;
+    color: #28a745;
+  }
+  
+  /* Responsive */
+  @media (max-width: 768px) {
+    .product-list {
+      flex-direction: column;
+      align-items: center;
+    }
+  
+    .product {
+      width: 90%;
+    }
+  }
+  
+  
+  .reviews {
+    background: linear-gradient(to right, #ffe5b4, #ffffff);
+    text-align: center;
+    margin: 2rem 0;
+    padding: 2rem;
+    border-radius: 10px;
+  }
+  
+  .review-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+    justify-items: center;
+  }
+  
+  .review-card {
+    background: #fff;
+    padding: 1.5rem;
+    border-radius: 8px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+    text-align: center;
+    max-width: 300px;
+  }
+  
+  .review-card img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    margin-bottom: 1rem;
+  }
+  
+  .review-card p {
+    font-size: 1rem;
+    color: #333;
+    margin-bottom: 0.5rem;
+  }
+  
+  .review-card span {
+    font-weight: bold;
+    color: #555;
+  }
+  
+  .rating {
+    font-size: 1.2rem;
+    color: gold;
+    margin-top: 0.5rem;
+  }
+  
+  /* Newsletter */
+  .newsletter {
+    background: #007bff;
+    padding: 2rem;
+    color: white;
+    border-radius: 10px;
+  }
+
+  .newsletter input {
+    padding: 0.5rem;
+    width: 250px;
+    margin-right: 0.5rem;
+  }
+  
+  .newsletter button {
+    background: #ff5733;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+  }
+  
+  .newsletter button:hover {
+    background: #ff2a00;
+  }
+  
+  .success-message {
+    font-size: 1rem;
+    font-weight: bold;
+    color: #000000;
+    margin-top: 10px;
+  }
+  
+  
+  /* Social Media */
+  .social-media {
+    margin-top: 3rem;
+  }
+  .icons img {
+    width: 40px;
+    margin: 0 10px;
+  }
+  

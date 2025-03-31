@@ -1,32 +1,52 @@
+/* Title & Subtitle Background */
+.about-header {
+    padding: 20px;
+    text-align: center;
+    border-radius: 12px;
+    background: linear-gradient(135deg, #11998e, #38ef7d);
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    color: white;
+    margin: 30px;
+}
+
+/* About Title */
+.about-title {
+    font-size: 2.5rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+}
+
+/* About Subtitle */
+.about-subtitle {
+    font-size: 1.2rem;
+    font-weight: 500;
+    text-transform: uppercase;
+}
+
+
 /* About Section */
 #about {
     max-width: 900px;
     margin: 50px auto;
     text-align: center;
-    padding: 30px;
-    background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+    padding: 40px 30px;
+    background: linear-gradient(135deg, #1a1a2e, #16213e, #0f3460);
     color: white;
     border-radius: 12px;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
-}
-
-/* About Heading */
-#about h2 {
-    font-size: 2rem;
-    font-weight: bold;
-    color: #1e90ff;
-    margin-bottom: 20px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
 }
 
 /* About Content */
-#about div {
+.about-content {
     display: flex;
     flex-direction: column;
     align-items: center;
+    gap: 1.5rem;
 }
 
 /* About Image */
-#about img {
+.about-image {
     width: 100%;
     max-width: 500px;
     max-height: 275px;
@@ -36,16 +56,22 @@
     transition: transform 0.3s ease-in-out;
 }
 
-#about img:hover {
+.about-image:hover {
     transform: scale(1.05);
 }
 
 /* About Text */
-#about p {
+.about-text {
+    max-width: 800px;
+    text-align: justify;
     font-size: 1.1rem;
     line-height: 1.6;
     color: #d1ecff;
     padding: 0 15px;
+}
+
+.about-text strong {
+    color: #ffcc00;
 }
 
 /* Responsive Design */
@@ -54,11 +80,15 @@
         padding: 20px;
     }
 
-    #about h2 {
-        font-size: 1.8rem;
+    .about-title {
+        font-size: 2rem;
     }
 
-    #about p {
+    .about-subtitle {
+        font-size: 1rem;
+    }
+
+    .about-text {
         font-size: 1rem;
     }
 }

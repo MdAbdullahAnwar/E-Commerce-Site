@@ -1,0 +1,28 @@
+  .store-container {
+    text-align: center;
+    padding: 2rem;
+    background-color: #f8f9fa; 
+    min-height: 100vh;
+  }
+  
+  .store-banner {
+    background: linear-gradient(135deg, #11998e, #38ef7d);
+    color: white;
+    padding: 2rem;
+    border-radius: 10px;
+    margin-bottom: 2rem;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+  }
+  
+  .store-title {
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+  }
+  
+  .store-subtitle {
+    font-size: 1.2rem;
+    font-weight: 500;
+    opacity: 0.9;
+  }
+  
