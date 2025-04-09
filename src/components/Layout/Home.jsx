@@ -102,7 +102,7 @@ const Home = () => {
 
 
         {/* Newsletter Signup */}
-        <div className="newsletter">
+        {/* <div className="newsletter">
             <h2>Subscribe to Our Newsletter</h2>
             {!subscribed ? (
             <>
@@ -117,7 +117,7 @@ const Home = () => {
             ) : (
                 <p className="success-message">Thank you for subscribing!</p>
             )}
-        </div>
+        </div> */}
 
     </section>
   );

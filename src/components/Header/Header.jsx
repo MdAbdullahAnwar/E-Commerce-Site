@@ -70,6 +70,7 @@ const Header = ({ showCartHandler, showWishlistHandler }) => {
               <NavLink to="/" className="nav-link">Home</NavLink>
               <NavLink to="/store" className="nav-link">Store</NavLink>
               <NavLink to="/about" className="nav-link">About</NavLink>
+              <NavLink to="/contact" className="nav-link">Contact</NavLink>
             </Nav>
           
           </Navbar.Collapse>
