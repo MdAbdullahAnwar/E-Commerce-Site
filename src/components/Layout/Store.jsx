@@ -7,9 +7,8 @@ const Store = () => {
     <section className="store-container">
       <div className="store-banner">
         <h1 className="store-title">MOBILEMART STORE</h1>
-        
         <p className="store-subtitle">
-            DISCOVER THE BEST MOBILE DEVICES AT UNBEATABLE PRICES! 
+          DISCOVER THE BEST MOBILE DEVICES AT UNBEATABLE PRICES!
         </p>
       </div>
       <ProductList />
