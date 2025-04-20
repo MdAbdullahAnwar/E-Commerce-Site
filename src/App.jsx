@@ -17,50 +17,65 @@ import "./App.css";
 function App() {
   const [cartIsOpen, setCartIsOpen] = useState(false);
   const [wishlistIsOpen, setWishlistIsOpen] = useState(false);
+  const [authMode, setAuthMode] = useState("login"); // login or signup
 
   const authCtx = useContext(AuthContext);
   const isLoggedIn = authCtx.isLoggedIn;
 
   const showCartHandler = () => setCartIsOpen(true);
   const hideCartHandler = () => setCartIsOpen(false);
-  
+
   const showWishlistHandler = () => setWishlistIsOpen(true);
   const hideWishlistHandler = () => setWishlistIsOpen(false);
 
+  const toggleAuthMode = () => {
+    setAuthMode((prev) => (prev === "login" ? "signup" : "login"));
+  };
+
   return (
     <CartProvider>
-      {/* Always Show Header */}
-      <Header showCartHandler={showCartHandler} showWishlistHandler={showWishlistHandler} />
+      <Header
+        showCartHandler={showCartHandler}
+        showWishlistHandler={showWishlistHandler}
+        isLoggedIn={isLoggedIn}
+        authMode={authMode}
+        onToggleAuthMode={toggleAuthMode}
+      />
 
-      {/* Cart & Wishlist Only When Logged In */}
-      {isLoggedIn && (
-        <>
-          {cartIsOpen && <Cart showCartHandler={hideCartHandler} />}
-          {wishlistIsOpen && <WishlistModal show={wishlistIsOpen} onHide={hideWishlistHandler} />}
-        </>
+      {isLoggedIn && cartIsOpen && <Cart showCartHandler={hideCartHandler} />}
+      {isLoggedIn && wishlistIsOpen && (
+        <WishlistModal show={wishlistIsOpen} onHide={hideWishlistHandler} />
       )}
 
       <main>
         <Routes>
-          {!isLoggedIn ? (
+          <Route path="/" element={<Home />} />
+          <Route
+            path="/auth"
+            element={
+              isLoggedIn ? (
+                <Navigate to="/" />
+              ) : (
+                <AuthForm
+                  authMode={authMode}
+                  onToggleAuthMode={toggleAuthMode}
+                />
+              )
+            }
+          />
+          {isLoggedIn ? (
             <>
-              <Route path="/auth" element={<AuthForm />} />
-              <Route path="*" element={<Navigate to="/auth" />} />
-            </>
-          ) : (
-            <>
-              <Route path="/" element={<Home />} />
               <Route path="/store" element={<Store />} />
               <Route path="/about" element={<About />} />
               <Route path="/contact" element={<ContactUs />} />
               <Route path="/product/:productId" element={<ProductPage />} />
-              <Route path="*" element={<Navigate to="/" />} />
             </>
+          ) : (
+            <Route path="*" element={<Navigate to="/auth" />} />
           )}
         </Routes>
       </main>
 
-      {/* Always Show Footer */}
       <Footer />
     </CartProvider>
   );
