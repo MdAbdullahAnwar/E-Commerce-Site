@@ -13,6 +13,7 @@
 
   /* Product Image Styling */
   .product-image {
+    height: 200px;
     border-top-left-radius: 15px;
     border-top-right-radius: 15px;
     object-fit: cover;
@@ -23,12 +24,17 @@
     color: red;
     border: 2px solid red;
     transition: all 0.3s ease;
+    margin: 0 3px;
   }
 
   /* Button Hover Effects */  
   .wishlist-btn:hover {
     background-color: red !important;
     color: white !important;
+  }
+
+  .cart-btn {
+    margin: 0 3px;
   }
 
   .cart-btn:hover {

@@ -21,6 +21,7 @@
   
     .hero p {
         font-size: 1.2rem;
+        color: white;
         margin: 1rem 0;
     }
   
@@ -52,6 +53,7 @@
     }
     .special-offers p {
         font-size: 1.2rem;
+        color: white;
     }
   
     

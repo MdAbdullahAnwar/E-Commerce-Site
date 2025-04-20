@@ -5,7 +5,6 @@
     border-radius: 12px;
     background: linear-gradient(135deg, #11998e, #38ef7d);
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
-    color: white;
     margin: 30px;
   }
   
@@ -19,6 +18,7 @@
   
   /* Contact Subtitle (Optional) */
   .contact-subtitle {
+    color: white;
     font-size: 1.2rem;
     font-weight: 500;
     text-transform: uppercase;

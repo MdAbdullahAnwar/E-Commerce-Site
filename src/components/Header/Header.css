@@ -86,6 +86,7 @@
   .rectangular {
     display: flex;
     align-items: center;
+    max-width: fit-content;
     gap: 6px;
     margin: 4px;
     padding: 6px 12px;

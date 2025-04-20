@@ -1,0 +1,108 @@
+.auth {
+    max-width: 420px;
+    margin: 3rem auto;
+    padding: 2.5rem;
+    background: linear-gradient(to bottom right, #ffffff, #f0f4f8);
+    border-radius: 16px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  }
+  
+  h1 {
+    text-align: center;
+    margin-bottom: 1.5rem;
+    font-size: 1.8rem;
+    color: #1a1a1a;
+    font-weight: 700;
+  }
+  
+  .control {
+    margin-bottom: 1.2rem;
+  }
+  
+  .control label {
+    font-weight: 600;
+    color: #444;
+    display: block;
+    margin-bottom: 0.6rem;
+    font-size: 0.95rem;
+  }
+  
+  .control input {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    font-size: 1rem;
+    border: 1px solid #d1d5db;
+    border-radius: 8px;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .control input:focus {
+    border-color: #0d6efd;
+    background-color: #f8fafc;
+    box-shadow: 0 0 0 3px rgba(13, 110, 253, 0.2);
+    outline: none;
+  }
+  
+  .actions {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 1.5rem;
+  }
+  
+  button {
+    background-color: #0d6efd;
+    color: #fff;
+    border: none;
+    padding: 0.75rem 2rem;
+    font-size: 1rem;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    width: 100%;
+  }
+  
+  button:hover {
+    background-color: #084298;
+  }
+  
+  button:disabled {
+    background-color: #b0b0b0;
+    cursor: not-allowed;
+  }
+  
+  .toggle {
+    background-color: transparent;
+    color: #0d6efd;
+    border: none;
+    cursor: pointer;
+    font-weight: 500;
+    text-decoration: underline;
+    margin-top: 1rem;
+  }
+  
+  .toggle:hover {
+    color: #ffffff;
+  }
+  
+  p {
+    color: #0d6efd;
+    font-size: 1rem;
+    font-weight: 600;
+    text-align: center;
+    margin-top: 1rem;
+  }
+  
+  @media (max-width: 480px) {
+    .auth {
+      padding: 2rem 1.5rem;
+      margin: 2rem 1rem;
+    }
+  
+    button {
+      font-size: 0.95rem;
+      padding: 0.7rem 1.5rem;
+    }
+  }
+  
