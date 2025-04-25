@@ -1,16 +1,15 @@
 import { useState, useRef, useContext } from "react";
-import { useNavigate } from "react-router-dom";  // Changed to useNavigate
 import AuthContext from "../Store/AuthContext";
 import classes from "./AuthForm.module.css";
+import { useNavigate } from "react-router-dom";
 
 const AuthForm = () => {
   const emailInputRef = useRef();
   const passwordInputRef = useRef();
 
-  const navigate = useNavigate();  // Replaced useHistory with useNavigate
+  const navigate = useNavigate();
   const authCtx = useContext(AuthContext);
 
-  // Track whether we're in login mode or signup mode
   const [isLogin, setIsLogin] = useState(true);
   const [isLoading, setIsLoading] = useState(false);
 
@@ -27,7 +26,6 @@ const AuthForm = () => {
     setIsLoading(true);
 
     let url;
-
     if (isLogin) {
       url =
         "https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=AIzaSyBWfhosGO8TjFz1RimdMo1nwxtmh_My-Fw";
@@ -59,13 +57,13 @@ const AuthForm = () => {
         }
       })
       .then((data) => {
-        authCtx.login(data.idToken);
-        navigate("/store");  // Replaced history.replace with navigate
+        authCtx.login(data.idToken, enteredEmail);
+        navigate("/Store");
       })
       .catch((err) => {
-        alert(err.message || "Login failed!");
+        alert(err);
       });
-  };
+  };  
 
   return (
     <section className={classes.auth}>

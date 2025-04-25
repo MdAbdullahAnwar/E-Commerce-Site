@@ -3,56 +3,40 @@ import React, { useState, useEffect } from "react";
 const AuthContext = React.createContext({
   token: "",
   isLoggedIn: false,
-  login: (token) => {},
+  login: (token, email) => {},
   logout: () => {},
+  email: "",
 });
 
 export const AuthContextProvider = (props) => {
   const initialToken = localStorage.getItem("token");
+  const initialEmail = localStorage.getItem("email");
+
   const [token, setToken] = useState(initialToken);
+  const [email, setEmail] = useState(initialEmail);
 
   const userIsLoggedIn = !!token;
 
-  const loginHandler = (token) => {
+  const loginHandler = (token, email) => {
     setToken(token);
+    setEmail(email);
     localStorage.setItem("token", token);
-    
-    const expirationTime = new Date().getTime() + 5 * 60 * 1000; // 5 minutes expiry
-    localStorage.setItem("expirationTime", expirationTime);
+    localStorage.setItem("email", email);
   };
 
   const logoutHandler = () => {
     setToken(null);
+    setEmail(null);
     localStorage.removeItem("token");
-    localStorage.removeItem("expirationTime");
+    localStorage.removeItem("email");
   };
-
-  useEffect(() => {
-    const storedExpirationTime = localStorage.getItem("expirationTime");
-    let logoutTimer;
-
-    if (userIsLoggedIn && storedExpirationTime) {
-      const remainingTime = +storedExpirationTime - new Date().getTime();
-
-      if (remainingTime <= 0) {
-        logoutHandler();
-        alert("Session expired. Please log in again.");
-      } else {
-        logoutTimer = setTimeout(() => {
-          logoutHandler();
-          alert("You have been logged out due to inactivity.");
-        }, remainingTime);
-      }
-    }
-
-    return () => clearTimeout(logoutTimer); // Cleanup
-  }, [userIsLoggedIn]);
 
   const contextValue = {
     token: token,
     isLoggedIn: userIsLoggedIn,
     login: loginHandler,
     logout: logoutHandler,
+    email: email,
   };
 
   return (

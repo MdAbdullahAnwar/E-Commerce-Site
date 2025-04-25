@@ -12,6 +12,7 @@ import Store from "./components/Layout/Store";
 import About from "./components/Layout/About";
 import ContactUs from "./components/Layout/ContactUs";
 import ProductPage from "./components/Product/ProductPage";
+import UserDataManager from "./components/Store/UserDataManager";
 import "./App.css";
 
 function App() {
@@ -34,6 +35,10 @@ function App() {
 
   return (
     <CartProvider>
+
+      {/* ✅ Inject UserDataManager so it loads/syncs user cart/wishlist */}
+      <UserDataManager />
+
       <Header
         showCartHandler={showCartHandler}
         showWishlistHandler={showWishlistHandler}

@@ -106,6 +106,18 @@
     }
   }
   
+
+  @media (max-width: 991px) {
+    .wishlist-cart-container.d-lg-none {
+      position: absolute;
+      top: 18px;
+      right: 60px; 
+      z-index: 1050;
+      flex-direction: row;
+      gap: 8px;
+    }
+  }
+
   /* Badge (Count Styling) */
   .badge {
     position: absolute;
