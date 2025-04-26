@@ -29,12 +29,12 @@
 
 /* Wishlist Add to Cart Button */
 .wishlist-add-to-cart-btn {
-  width: 120px; /* Fixed width for uniformity */
-  height: 40px; /* Fixed height for consistency */
+  width: 120px;
+  height: 40px;
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: #28a745; /* Bootstrap success green */
+  background-color: #28a745; 
   border: none;
   padding: 8px 12px;
   font-weight: bold;
@@ -42,18 +42,18 @@
 }
 
 .wishlist-add-to-cart-btn:hover {
-  background-color: #218838; /* Darker green on hover */
-  transform: scale(1.05); /* Slightly enlarges the button */
+  background-color: #218838;
+  transform: scale(1.05); 
 }
 
 /* Wishlist Remove Button */
 .wishlist-remove-btn {
-  width: 90px; /* Fixed width for uniformity */
-  height: 40px; /* Fixed height for consistency */
+  width: 90px; 
+  height: 40px; 
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: #dc3545; /* Bootstrap danger red */
+  background-color: #dc3545; 
   border: none;
   padding: 8px 12px;
   font-weight: bold;
@@ -61,7 +61,7 @@
 }
 
 .wishlist-remove-btn:hover {
-  background-color: #c82333; /* Darker red on hover */
+  background-color: #c82333; 
   transform: scale(1.05);
 }
 

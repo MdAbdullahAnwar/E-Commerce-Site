@@ -1,12 +1,103 @@
-# React + Vite
+# 📱 MobileMart
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+**MobileMart** is a fully functional e-commerce website built for selling smartphones. It features user authentication, cart and wishlist management, a contact form, and responsive UI/UX for seamless shopping.
 
-Currently, two official plugins are available:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🚀 Features
 
-## Expanding the ESLint configuration
+- 🔐 **User Authentication**
+  - Firebase Authentication used for sign-up/login
+  - Secure email and password storage
+  - Session management
 
-If you are developing a production application, we recommend using TypeScript and enable type-aware lint rules. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- 🏠 **Navigation Pages**
+  - **Home** – Welcome page with brand introduction
+  - **Store** – Displays a dynamic product list with images, prices, and action buttons
+  - **About** – Overview of the MobileMart brand
+  - **Contact** – Contact form with fields for name, email, and phone number
+
+- 🛒 **Cart System**
+  - Add items to cart with image, name, and price
+  - Quantity increment/decrement using `+` and `-` buttons
+  - Real-time update of item count and total price
+  - Modal UI for cart
+  - Purchase and close buttons
+
+- 💖 **Wishlist Feature**
+  - Add/remove items to/from wishlist
+  - Wishlist accessible via header icon
+  - Modal view similar to cart
+
+- 📦 **Product Handling**
+  - Products displayed in card layout
+  - Add to cart and wishlist buttons per item
+
+- 🔁 **Backend Integration**
+  - Cart and Wishlist data persisted via [CrudCrud](https://crudcrud.com/)
+  - User-specific data based on Firebase-authenticated email (sanitized)
+
+- 📱 **Responsive UI**
+  - Clean layout and responsive components
+  - Styled header, footer, and modals
+
+- 🔗 **Footer**
+  - Includes social media links to:
+    - Facebook
+    - Twitter
+    - Instagram
+    - LinkedIn
+
+
+```
+## 🗂 Folder Structure
+E-Commerce Site/
+├── public/
+│   └── index.html
+├── src/
+│   ├── App.jsx
+│   ├── main.jsx
+│   ├── components/
+│   │   ├── Auth/
+│   │   │   ├── AuthForm.jsx
+│   │   │   └── AuthForm.module.css
+│   │   ├── Cart/
+│   │   │   ├── Cart.jsx
+│   │   │   └── CartItem.jsx
+│   │   ├── Header/
+│   │   │   ├── Header.jsx
+│   │   │   └── Header.css
+│   │   ├── Layout/
+│   │   │   ├── About.jsx
+│   │   │   ├── ContactUs.jsx
+│   │   │   ├── Footer.jsx
+│   │   │   ├── Home.jsx
+│   │   │   └── Store.jsx
+│   │   ├── PrivateRoute/
+│   │   │   └── PrivateRoute.jsx
+│   │   ├── Product/
+│   │   │   ├── ProductList.jsx
+│   │   │   ├── ProductPage.jsx
+│   │   │   └── Products.jsx
+│   │   ├── Routes/
+│   │   │   └── Routers.jsx
+│   │   ├── Store/
+│   │   │   ├── AuthContext.jsx
+│   │   │   ├── CartContext.jsx
+│   │   │   ├── CartProvider.jsx
+│   │   │   └── UserDataManager.jsx
+│   │   ├── Wishlist/
+│   │   │   └── WishlistModal.jsx
+├── .gitignore
+├── package.json
+├── README.md
+```
+
+
+## 🛠 Tech Stack
+
+- **Frontend**: React
+- **Authentication**: Firebase
+- **Backend (Cart/Wishlist)**: CrudCrud
+- **State Management**: Context API
+- **Routing**: React Router v5
+- **Styling**: CSS Modules & Bootstrap

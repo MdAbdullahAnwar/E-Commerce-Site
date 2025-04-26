@@ -3,7 +3,7 @@ import axios from 'axios';
 import AuthContext from './AuthContext';
 import CartContext from './CartContext';
 
-const BASE_URL = 'https://crudcrud.com/api/37a3d2b8afcb4f0fbb86e28b06d3d419';
+const BASE_URL = "https://crudcrud.com/api/7b552eed4269478f92f9172d0ef54060";
 
 const UserDataManager = () => {
   const { user } = useContext(AuthContext);

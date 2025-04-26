@@ -43,8 +43,8 @@ const WishlistModal = ({ show, onHide }) => {
                     variant="success" 
                     className="wishlist-add-to-cart-btn"
                     onClick={() => {
-                      cartCtx.addItem(item); // Add to cart
-                      cartCtx.removeFromWishlist(item.id); // Remove from wishlist
+                      cartCtx.addItem(item);
+                      cartCtx.removeFromWishlist(item.id);
                     }}
                   >
                     Add to Cart

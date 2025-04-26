@@ -2,7 +2,7 @@ import React, { useState, useEffect, useContext, useCallback } from "react";
 import CartContext from "./CartContext";
 import AuthContext from "../Store/AuthContext";
 
-const API_BASE = "https://crudcrud.com/api/37a3d2b8afcb4f0fbb86e28b06d3d419";
+const API_BASE = "https://crudcrud.com/api/7b552eed4269478f92f9172d0ef54060";
 
 const CartProvider = (props) => {
   const [items, setItems] = useState([]);

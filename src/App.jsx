@@ -18,7 +18,7 @@ import "./App.css";
 function App() {
   const [cartIsOpen, setCartIsOpen] = useState(false);
   const [wishlistIsOpen, setWishlistIsOpen] = useState(false);
-  const [authMode, setAuthMode] = useState("login"); // login or signup
+  const [authMode, setAuthMode] = useState("login");
 
   const authCtx = useContext(AuthContext);
   const isLoggedIn = authCtx.isLoggedIn;
@@ -36,7 +36,6 @@ function App() {
   return (
     <CartProvider>
 
-      {/* ✅ Inject UserDataManager so it loads/syncs user cart/wishlist */}
       <UserDataManager />
 
       <Header
