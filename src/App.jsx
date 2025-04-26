@@ -1,4 +1,4 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, Suspense, lazy } from "react";
 import { Routes, Route, Navigate } from "react-router-dom";
 import CartProvider from "./components/Store/CartProvider";
 import Cart from "./components/Cart/Cart";
@@ -6,14 +6,17 @@ import WishlistModal from "./components/Wishlist/WishlistModal";
 import Header from "./components/Header/Header";
 import Footer from "./components/Layout/Footer";
 import AuthContext from "./components/Store/AuthContext";
-import AuthForm from "./components/Auth/AuthForm";
-import Home from "./components/Layout/Home";
-import Store from "./components/Layout/Store";
-import About from "./components/Layout/About";
-import ContactUs from "./components/Layout/ContactUs";
-import ProductPage from "./components/Product/ProductPage";
 import UserDataManager from "./components/Store/UserDataManager";
+import Loader from "./components/UI/Loader"; 
 import "./App.css";
+
+// Lazy loaded components
+const AuthForm = lazy(() => import("./components/Auth/AuthForm"));
+const Home = lazy(() => import("./components/Layout/Home"));
+const Store = lazy(() => import("./components/Layout/Store"));
+const About = lazy(() => import("./components/Layout/About"));
+const ContactUs = lazy(() => import("./components/Layout/ContactUs"));
+const ProductPage = lazy(() => import("./components/Product/ProductPage"));
 
 function App() {
   const [cartIsOpen, setCartIsOpen] = useState(false);
@@ -35,9 +38,7 @@ function App() {
 
   return (
     <CartProvider>
-
       <UserDataManager />
-
       <Header
         showCartHandler={showCartHandler}
         showWishlistHandler={showWishlistHandler}
@@ -52,32 +53,31 @@ function App() {
       )}
 
       <main>
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route
-            path="/auth"
-            element={
-              isLoggedIn ? (
-                <Navigate to="/" />
-              ) : (
-                <AuthForm
-                  authMode={authMode}
-                  onToggleAuthMode={toggleAuthMode}
-                />
-              )
-            }
-          />
-          {isLoggedIn ? (
-            <>
-              <Route path="/store" element={<Store />} />
-              <Route path="/about" element={<About />} />
-              <Route path="/contact" element={<ContactUs />} />
-              <Route path="/product/:productId" element={<ProductPage />} />
-            </>
-          ) : (
-            <Route path="*" element={<Navigate to="/auth" />} />
-          )}
-        </Routes>
+        <Suspense fallback={<Loader />}>
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route
+              path="/auth"
+              element={
+                isLoggedIn ? (
+                  <Navigate to="/" />
+                ) : (
+                  <AuthForm authMode={authMode} onToggleAuthMode={toggleAuthMode} />
+                )
+              }
+            />
+            {isLoggedIn ? (
+              <>
+                <Route path="/store" element={<Store />} />
+                <Route path="/about" element={<About />} />
+                <Route path="/contact" element={<ContactUs />} />
+                <Route path="/product/:productId" element={<ProductPage />} />
+              </>
+            ) : (
+              <Route path="*" element={<Navigate to="/auth" />} />
+            )}
+          </Routes>
+        </Suspense>
       </main>
 
       <Footer />
