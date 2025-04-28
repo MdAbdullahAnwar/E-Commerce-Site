@@ -1,6 +1,7 @@
-import React, { useState, useEffect } from "react";
+import { createContext, useState, useContext } from "react";
+import { useHistory } from "react-router-dom";
 
-const AuthContext = React.createContext({
+const AuthContext = createContext({
   token: "",
   isLoggedIn: false,
   login: (token, email) => {},
@@ -8,9 +9,10 @@ const AuthContext = React.createContext({
   email: "",
 });
 
-export const AuthContextProvider = (props) => {
-  const initialToken = localStorage.getItem("token");
-  const initialEmail = localStorage.getItem("email");
+export const AuthContextProvider = ({ children }) => {
+  const history = useHistory();
+  const initialToken = localStorage.getItem("token") || null;
+  const initialEmail = localStorage.getItem("email") || null;
 
   const [token, setToken] = useState(initialToken);
   const [email, setEmail] = useState(initialEmail);
@@ -22,6 +24,7 @@ export const AuthContextProvider = (props) => {
     setEmail(email);
     localStorage.setItem("token", token);
     localStorage.setItem("email", email);
+    history.push("/");
   };
 
   const logoutHandler = () => {
@@ -29,21 +32,23 @@ export const AuthContextProvider = (props) => {
     setEmail(null);
     localStorage.removeItem("token");
     localStorage.removeItem("email");
+    history.push("/auth");
   };
 
   const contextValue = {
-    token: token,
+    token,
     isLoggedIn: userIsLoggedIn,
     login: loginHandler,
     logout: logoutHandler,
-    email: email,
+    email,
   };
 
   return (
     <AuthContext.Provider value={contextValue}>
-      {props.children}
+      {children}
     </AuthContext.Provider>
   );
 };
 
+export const useAuth = () => useContext(AuthContext);
 export default AuthContext;

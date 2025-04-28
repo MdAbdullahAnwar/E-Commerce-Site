@@ -40,7 +40,7 @@ const Cart = ({ showCartHandler }) => {
           )}
 
           {cartCtx.items.length === 0 ? (
-            <p className="text-center">
+            <p className="text-center text-muted">
               Your cart is empty.
             </p>
           ) : (

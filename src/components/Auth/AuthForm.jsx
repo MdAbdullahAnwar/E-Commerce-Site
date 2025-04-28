@@ -1,21 +1,16 @@
-import { useState, useRef, useContext } from "react";
+import { useRef, useContext, useState } from "react";
 import AuthContext from "../Store/AuthContext";
 import classes from "./AuthForm.module.css";
-import { useNavigate } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 
-const AuthForm = () => {
+const AuthForm = ({ isLogin, switchAuthModeHandler }) => {
   const emailInputRef = useRef();
   const passwordInputRef = useRef();
 
-  const navigate = useNavigate();
+  const history = useHistory();
   const authCtx = useContext(AuthContext);
 
-  const [isLogin, setIsLogin] = useState(true);
   const [isLoading, setIsLoading] = useState(false);
-
-  const switchAuthModeHandler = () => {
-    setIsLogin((prevState) => !prevState);
-  };
 
   const submitHandler = (event) => {
     event.preventDefault();
@@ -51,19 +46,19 @@ const AuthForm = () => {
           return res.json();
         } else {
           return res.json().then((data) => {
-            let errorMessage = "AUTHENTICATION FAILED!";
+            let errorMessage = "Authentication Failed!";
             throw new Error(errorMessage);
           });
         }
       })
       .then((data) => {
         authCtx.login(data.idToken, enteredEmail);
-        navigate("/Store");
+        history.push("/Store");
       })
       .catch((err) => {
-        alert(err);
+        alert(err.message);
       });
-  };  
+  };
 
   return (
     <section className={classes.auth}>
